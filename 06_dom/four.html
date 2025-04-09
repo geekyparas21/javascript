@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Part Four</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+    <div>
+        <ul class="language">
+            <li>
+                Javascript
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    function addLanguage(langName){
+        const li = document.createElement('li');
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("python")
+
+    addoptlang = function(type){
+        const li=document.createElement('li');
+        li.appendChild(document.createTextNode(`${type}`));
+        document.querySelector('.language').appendChild(li);
+    }
+    addoptlang("typescript");
+
+    function editlang(type){
+        const secondlang=document.querySelector('.language').children[1];
+        const newli=document.createElement('li');
+        newli.appendChild(document.createTextNode(`${type}`));
+        secondlang.replaceWith(newli);
+    }
+    editlang("golang")
+
+    const firstLang = document.querySelector("li:nth-child(1)")
+    firstLang.outerHTML = '<li>Java</li>'
+
+    const lastLang = document.querySelector('li:last-child')
+    lastLang.remove()
+</script>
+</html>
