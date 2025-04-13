@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Two</title>
+</head>
+<body>
+    <h1>Chai aur Javascript</h1>
+    <button id="Startbut"> Start </button><br>
+    <button id="Stopbut"> Stop </button>
+
+</body>
+<script>
+    const print=function(){
+        console.log("i m paras",new Date().toLocaleString())
+    }
+    let change;
+    let flag=true
+    document.querySelector('#Startbut').addEventListener('click',(e)=>{
+        if(flag){
+            change=setInterval(print,1000)
+            flag=false;
+        }
+    })
+    document.querySelector('#Stopbut').addEventListener('click',(e)=>{
+        if(!flag){
+            clearInterval(change)
+            flag=true;
+        }
+    })
+</script>
+</html>
